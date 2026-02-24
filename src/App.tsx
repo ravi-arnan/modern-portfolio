@@ -2,6 +2,7 @@ import { ThemeProvider } from './components/ThemeProvider';
 import { AnimatedBackground } from './components/AnimatedBackground';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { Marquee } from './components/Marquee';
 import { About } from './components/About';
 import { Education } from './components/Education';
 import { Projects } from './components/Projects';
@@ -19,6 +20,7 @@ function App() {
 
         <main>
           <Hero />
+          <Marquee />
           <About />
           <Education />
           <Projects />

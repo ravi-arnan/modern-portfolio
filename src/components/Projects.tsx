@@ -64,7 +64,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0], index: n
                     {/* Collapsed Header Area (Always Visible) */}
                     <div className="flex items-center justify-between cursor-pointer">
                         <div className="flex items-center gap-6">
-                            <span className="text-4xl md:text-5xl font-black text-slate-200 dark:text-slate-800 transition-colors duration-500 group-hover:text-slate-300 dark:group-hover:text-slate-700 w-16 tracking-tighter">
+                            <span className="text-4xl md:text-5xl font-black text-slate-800 dark:text-slate-200 transition-colors duration-500 group-hover:text-slate-900 dark:group-hover:text-slate-100 w-16 tracking-tighter">
                                 {(index + 1).toString().padStart(2, '0')}
                             </span>
                             <div>
