@@ -1,4 +1,5 @@
 import { ThemeProvider } from './components/ThemeProvider';
+import { AnimatedBackground } from './components/AnimatedBackground';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -11,8 +12,9 @@ import { Contact } from './components/Contact';
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="light">
-      <div className="min-h-screen font-sans selection:bg-blue-500/30">
+    <ThemeProvider defaultTheme="dark">
+      <div className="min-h-screen font-sans selection:bg-blue-500/30 relative text-slate-900 dark:text-slate-50 transition-colors duration-300">
+        <AnimatedBackground />
         <Navbar />
 
         <main>
