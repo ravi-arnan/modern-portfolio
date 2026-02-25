@@ -61,4 +61,9 @@
   animation: infinite-scroll 25s linear infinite;
 }
 
-/* End of File */
+/* Shimmer Animation for Loading Screen */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

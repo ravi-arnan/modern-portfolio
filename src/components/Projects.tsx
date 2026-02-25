@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, FolderGit2, ChevronDown } from 'lucide-react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { ExternalLink, Github, FolderGit2 } from 'lucide-react';
 import { useRef } from 'react';
 import { cn } from '../lib/utils';
 import { TextShape } from './TextShape';
@@ -62,7 +62,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0], index: n
                     isInView ? "bg-white/80 dark:bg-slate-900/80 border-blue-200 dark:border-blue-500/30 shadow-[0_0_40px_rgba(59,130,246,0.1)]" : ""
                 )}>
                     {/* Collapsed Header Area (Always Visible) */}
-                    <div className="flex items-center justify-between cursor-pointer">
+                    <div className="flex items-center justify-between cursor-default">
                         <div className="flex items-center gap-6">
                             <span className="text-4xl md:text-5xl font-black text-slate-800 dark:text-slate-200 transition-colors duration-500 group-hover:text-slate-900 dark:group-hover:text-slate-100 w-16 tracking-tighter">
                                 {(index + 1).toString().padStart(2, '0')}
@@ -82,74 +82,62 @@ function ProjectCard({ project, index }: { project: typeof projects[0], index: n
                                 </h3>
                             </div>
                         </div>
-
-                        <ChevronDown
-                            className={cn(
-                                "w-6 h-6 text-slate-400 transition-transform duration-500",
-                                isInView ? "rotate-180 text-blue-500" : "rotate-0"
-                            )}
-                        />
                     </div>
 
-                    {/* Expandable Content Area */}
-                    <AnimatePresence>
-                        {isInView && (
-                            <motion.div
-                                initial={{ height: 0, opacity: 0, marginTop: 0 }}
-                                animate={{ height: "auto", opacity: 1, marginTop: 32 }}
-                                exit={{ height: 0, opacity: 0, marginTop: 0 }}
-                                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                                className="overflow-hidden"
-                            >
-                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                                    <div className="lg:col-span-7">
-                                        <div className="relative aspect-video rounded-xl overflow-hidden mb-8 group/image">
-                                            <div className="absolute inset-0 bg-slate-900/10 dark:bg-slate-900/20 mix-blend-multiply z-10 transition-opacity duration-300 group-hover/image:opacity-0" />
-                                            <img
-                                                src={project.image}
-                                                alt={project.title}
-                                                className="object-cover w-full h-full transition-transform duration-700 group-hover/image:scale-105"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="lg:col-span-5 flex flex-col justify-center h-full pb-4">
-                                        <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
-                                            {project.description}
-                                        </p>
-
-                                        <div className="flex flex-wrap gap-2 mb-10">
-                                            {project.tags.map(tag => (
-                                                <span
-                                                    key={tag}
-                                                    className="px-4 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-full"
-                                                >
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-
-                                        <div className="flex items-center gap-6 mt-auto">
-                                            <a
-                                                href={project.github}
-                                                className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors flex items-center gap-2 group/link font-medium"
-                                            >
-                                                <Github size={20} className="group-hover/link:-translate-y-1 transition-transform" />
-                                                Source Code
-                                            </a>
-                                            <a
-                                                href={project.demo}
-                                                className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors flex items-center gap-2 group/link font-medium"
-                                            >
-                                                <ExternalLink size={20} className="group-hover/link:-translate-y-1 group-hover/link:translate-x-1 transition-transform" />
-                                                Live Demo
-                                            </a>
-                                        </div>
-                                    </div>
+                    {/* Expandable Content Area (Always Rendered, Animations via Opacity/Transform) */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                        className="mt-8"
+                    >
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                            <div className="lg:col-span-7">
+                                <div className="relative aspect-video rounded-xl overflow-hidden mb-8 group/image">
+                                    <div className="absolute inset-0 bg-slate-900/10 dark:bg-slate-900/20 mix-blend-multiply z-10 transition-opacity duration-300 group-hover/image:opacity-0" />
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="object-cover w-full h-full transition-transform duration-700 group-hover/image:scale-105"
+                                    />
                                 </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+                            </div>
+
+                            <div className="lg:col-span-5 flex flex-col justify-center h-full pb-4">
+                                <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
+                                    {project.description}
+                                </p>
+
+                                <div className="flex flex-wrap gap-2 mb-10">
+                                    {project.tags.map(tag => (
+                                        <span
+                                            key={tag}
+                                            className="px-4 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-full"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div className="flex items-center gap-6 mt-auto">
+                                    <a
+                                        href={project.github}
+                                        className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors flex items-center gap-2 group/link font-medium"
+                                    >
+                                        <Github size={20} className="group-hover/link:-translate-y-1 transition-transform" />
+                                        Source Code
+                                    </a>
+                                    <a
+                                        href={project.demo}
+                                        className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors flex items-center gap-2 group/link font-medium"
+                                    >
+                                        <ExternalLink size={20} className="group-hover/link:-translate-y-1 group-hover/link:translate-x-1 transition-transform" />
+                                        Live Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </div>

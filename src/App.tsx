@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { ThemeProvider } from './components/ThemeProvider';
 import { AnimatedBackground } from './components/AnimatedBackground';
 import { Navbar } from './components/Navbar';
@@ -10,29 +12,46 @@ import { Skills } from './components/Skills';
 import { Achievements } from './components/Achievements';
 import { Interests } from './components/Interests';
 import { Contact } from './components/Contact';
+import { LoadingScreen } from './components/LoadingScreen';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <ThemeProvider defaultTheme="dark">
       <div className="min-h-screen font-sans selection:bg-blue-500/30 relative text-slate-900 dark:text-slate-50 transition-colors duration-300">
+
+        {isLoading && (
+          <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
+        )}
+
         <AnimatedBackground />
-        <Navbar />
 
-        <main>
-          <Hero />
-          <Marquee />
-          <About />
-          <Education />
-          <Projects />
-          <Skills />
-          <Achievements />
-          <Interests />
-          <Contact />
-        </main>
+        {/* Animate the main content in after the loading screen finishes */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isLoading ? 0 : 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className={isLoading ? 'pointer-events-none h-screen overflow-hidden' : ''}
+        >
+          <Navbar />
 
-        <footer className="py-8 text-center text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
-          <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
-        </footer>
+          <main>
+            <Hero />
+            <Marquee />
+            <About />
+            <Education />
+            <Projects />
+            <Skills />
+            <Achievements />
+            <Interests />
+            <Contact />
+          </main>
+
+          <footer className="py-8 text-center text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
+            <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          </footer>
+        </motion.div>
       </div>
     </ThemeProvider>
   );

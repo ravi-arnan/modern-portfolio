@@ -13,10 +13,23 @@ export function Hero() {
         mouseY.set(clientY - top);
     }
 
-    const glowBackground = useMotionTemplate`radial-gradient(150px circle at ${mouseX}px ${mouseY}px, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0) 100%)`;
+    const glowBackground = useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0) 100%)`;
 
     return (
-        <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <section
+            id="home"
+            className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <motion.div
+                className="absolute inset-0 pointer-events-none z-0 transition-opacity duration-500"
+                style={{
+                    background: glowBackground,
+                    opacity: isHovered ? 1 : 0
+                }}
+            />
             {/* Background Decorative Elements */}
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/20 rounded-full blur-[120px] -z-10" />
             <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-indigo-400/20 dark:bg-indigo-600/10 rounded-full blur-[150px] -z-10" />
@@ -32,20 +45,7 @@ export function Hero() {
                         Welcome to my portfolio
                     </motion.div>
 
-                    <div
-                        className="relative group w-full"
-                        onMouseMove={handleMouseMove}
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
-                    >
-                        <motion.div
-                            className="absolute inset-0 pointer-events-none -inset-x-20 -inset-y-20 z-0 transition-opacity duration-500"
-                            style={{
-                                background: glowBackground,
-                                opacity: isHovered ? 1 : 0
-                            }}
-                        />
-
+                    <div className="relative w-full">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
