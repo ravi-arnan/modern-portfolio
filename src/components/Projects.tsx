@@ -6,43 +6,35 @@ import { TextShape } from './TextShape';
 
 const projects = [
     {
-        title: 'E-Commerce Platform',
-        description: 'A modern, full-stack e-commerce solution with real-time inventory management and secure payment gateways.',
-        image: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800',
-        tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-        github: '#',
-        demo: '#'
-    },
-    {
-        title: 'Task Management App',
-        description: 'Collaborative workspace tool for teams to organize projects, track time, and manage daily workflows efficiently.',
-        image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=800',
-        tags: ['Vue', 'Firebase', 'Tailwind CSS'],
-        github: '#',
-        demo: '#'
-    },
-    {
-        title: 'AI Analytics Dashboard',
-        description: 'Data visualization platform leveraging machine learning models to provide predictive insights for retail businesses.',
+        title: 'deteksi_perokok',
+        description: 'A smoking detection application utilizing Computer Vision and Machine Learning to automatically identify instances of indoor smoking.',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-        tags: ['Next.js', 'Python', 'TensorFlow', 'D3.js'],
-        github: '#',
+        tags: ['Python', 'OpenCV', 'Machine Learning'],
+        github: 'https://github.com/ravi-arnan/deteksi_perokok',
         demo: '#'
     },
     {
-        title: 'Cybersecurity Toolkit',
-        description: 'A comprehensive suite of security analysis tools including vulnerability scanning, network traffic monitoring, and automated threat reporting.',
+        title: 'MergeUtility',
+        description: 'A dedicated utility and scripting tool designed to simplify the process of merging multiple data files efficiently.',
         image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800',
-        tags: ['Python', 'Rust', 'Docker', 'React'],
-        github: '#',
+        tags: ['Utility', 'Scripting', 'CLI'],
+        github: 'https://github.com/ravi-arnan/MergeUtility',
         demo: '#'
     },
     {
-        title: 'Fintech Mobile App',
-        description: 'Cross-platform mobile application for personal finance management, crypto portfolio tracking, and seamless peer-to-peer transfers.',
+        title: 'Arba',
+        description: 'A modern web project demonstrating frontend layout capabilities and functional web application structuring.',
         image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800',
-        tags: ['React Native', 'TypeScript', 'GraphQL', 'AWS'],
-        github: '#',
+        tags: ['Web Development', 'Frontend', 'React'],
+        github: 'https://github.com/ravi-arnan/Arba',
+        demo: '#'
+    },
+    {
+        title: 'codelearn',
+        description: 'A comprehensive educational repository focused on learning paths and exploring various programming concepts and languages.',
+        image: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800',
+        tags: ['Education', 'Programming', 'Open Source'],
+        github: 'https://github.com/ravi-arnan/codelearn',
         demo: '#'
     }
 ];
@@ -64,19 +56,19 @@ function ProjectCard({ project, index }: { project: typeof projects[0], index: n
                     {/* Collapsed Header Area (Always Visible) */}
                     <div className="flex items-center justify-between cursor-default">
                         <div className="flex items-center gap-6">
-                            <span className="text-4xl md:text-5xl font-black text-slate-800 dark:text-slate-200 transition-colors duration-500 group-hover:text-slate-900 dark:group-hover:text-slate-100 w-16 tracking-tighter">
+                            <span className="text-4xl md:text-5xl font-black text-slate-900 dark:text-slate-200 transition-colors duration-500 w-16 tracking-tighter">
                                 {(index + 1).toString().padStart(2, '0')}
                             </span>
                             <div>
                                 <span className={cn(
                                     "inline-block mb-3 px-3 py-1 text-xs font-semibold rounded-full transition-colors duration-500",
-                                    isInView ? "bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-300" : "bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400"
+                                    isInView ? "bg-blue-100 text-blue-800 dark:bg-blue-500/20 dark:text-blue-300" : "bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-400"
                                 )}>
                                     Featured Project
                                 </span>
                                 <h3 className={cn(
                                     "text-2xl md:text-4xl font-bold tracking-tight transition-colors duration-500",
-                                    isInView ? "text-slate-900 dark:text-white" : "text-slate-500 dark:text-slate-400"
+                                    isInView ? "text-slate-900 dark:text-white" : "text-slate-700 dark:text-slate-400"
                                 )}>
                                     {project.title}
                                 </h3>

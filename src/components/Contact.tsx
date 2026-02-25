@@ -123,7 +123,8 @@ export function Contact() {
                             <button
                                 type="submit"
                                 className={cn(
-                                    "glass-button-primary w-full py-4 rounded-xl font-medium flex items-center justify-center gap-2 group"
+                                    "w-full py-4 rounded-xl font-medium flex items-center justify-center gap-2 group",
+                                    "bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/25 transition-all duration-300"
                                 )}
                             >
                                 Send Message

@@ -3,22 +3,22 @@ import { Trophy, Award, Star } from 'lucide-react';
 
 const achievements = [
     {
-        title: 'First Place - Global Hackathon 2023',
-        organization: 'Tech Innovators',
+        title: 'Juara 1 Lomba Catur SPORTI',
+        organization: '2024 & 2025',
         icon: <Trophy className="w-6 h-6 text-yellow-500" />,
-        description: 'Developed an AI-driven accessibility tool that won first place among 500+ global teams.'
+        description: 'Meraih juara pertama dalam Lomba Catur SPORTI (Sportivitas Teknologi Informasi) selama dua tahun berturut-turut, menunjukkan kemampuan strategi dan problem-solving yang konsisten.'
     },
     {
-        title: 'Outstanding Developer Award',
-        organization: 'Software Engineering Institute',
-        icon: <Award className="w-6 h-6 text-blue-500" />,
-        description: 'Recognized for significant contributions to open-source community projects.'
+        title: 'Finalis Pilmapres TI',
+        organization: '2024',
+        icon: <Star className="w-6 h-6 text-blue-500" />,
+        description: 'Terpilih sebagai finalis Pemilihan Mahasiswa Berprestasi Teknologi Informasi 2024, mewakili fakultas dalam kompetisi bergengsi tingkat universitas.'
     },
     {
-        title: 'AWS Certified Solutions Architect',
-        organization: 'Amazon Web Services',
-        icon: <Star className="w-6 h-6 text-orange-500" />,
-        description: 'Professional certification demonstrating expertise in designing distributed systems.'
+        title: 'BSI Scholarship Inspirasi',
+        organization: '2024',
+        icon: <Award className="w-6 h-6 text-orange-500" />,
+        description: 'Penerima beasiswa BSI Scholarship Inspirasi 2024, penghargaan untuk mahasiswa berprestasi dengan kontribusi aktif dalam kegiatan akademik dan organisasi.'
     }
 ];
 
