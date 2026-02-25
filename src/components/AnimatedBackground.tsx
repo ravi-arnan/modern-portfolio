@@ -30,10 +30,27 @@ export function AnimatedBackground() {
             />
 
             {/* Soft Grid Overlay for subtle texture */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_80%,transparent_100%)] mix-blend-overlay" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_80%,transparent_100%)] mix-blend-overlay z-10" />
 
             {/* Cinematic blur overlay to smooth out the colors and make it relaxing */}
-            <div className="absolute inset-0 bg-white/20 dark:bg-transparent backdrop-blur-[60px]" />
+            <div className="absolute inset-0 bg-white/10 dark:bg-transparent backdrop-blur-[60px] z-[5]" />
+
+            {/* 16 Glassy Vertical Panels - Placed on top (z-20) */}
+            <div className="absolute inset-0 grid grid-cols-16 z-20">
+                {Array.from({ length: 16 }).map((_, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.8,
+                            delay: i * 0.05,
+                            ease: "easeOut"
+                        }}
+                        className="w-full h-full bg-white/10 dark:bg-white/5 backdrop-blur-md border-r border-white/20 dark:border-white/10 last:border-r-0"
+                    />
+                ))}
+            </div>
         </div>
     );
 }
