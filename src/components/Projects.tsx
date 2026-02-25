@@ -1,47 +1,60 @@
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { ExternalLink, Github, FolderGit2 } from 'lucide-react';
-import { useRef } from 'react';
+import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
+import { Github, FolderGit2, X, AlertCircle } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
 import { cn } from '../lib/utils';
 import { TextShape } from './TextShape';
+import telkomDashboardImage from '../assets/TelkomDashboard.png';
 
 const projects = [
     {
-        title: 'deteksi_perokok',
-        description: 'A smoking detection application utilizing Computer Vision and Machine Learning to automatically identify instances of indoor smoking.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-        tags: ['Python', 'OpenCV', 'Machine Learning'],
-        github: 'https://github.com/ravi-arnan/deteksi_perokok',
-        demo: '#'
+        title: 'Internal Telkom Dashboard',
+        description: 'Successfully conducted comprehensive security testing and vulnerability analysis. Implemented secure coding practices to fortify the application and protect against identified threats.',
+        image: telkomDashboardImage,
+        tags: ['Security Testing', 'Vulnerability Analysis', 'Secure Implementation'],
+        github: '#'
     },
     {
         title: 'MergeUtility',
         description: 'A dedicated utility and scripting tool designed to simplify the process of merging multiple data files efficiently.',
         image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800',
         tags: ['Utility', 'Scripting', 'CLI'],
-        github: 'https://github.com/ravi-arnan/MergeUtility',
-        demo: '#'
+        github: 'https://github.com/ravi-arnan/MergeUtility'
     },
     {
         title: 'Arba',
         description: 'A modern web project demonstrating frontend layout capabilities and functional web application structuring.',
         image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800',
         tags: ['Web Development', 'Frontend', 'React'],
-        github: 'https://github.com/ravi-arnan/Arba',
-        demo: '#'
+        github: 'https://github.com/ravi-arnan/Arba'
     },
     {
         title: 'codelearn',
         description: 'A comprehensive educational repository focused on learning paths and exploring various programming concepts and languages.',
         image: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800',
         tags: ['Education', 'Programming', 'Open Source'],
-        github: 'https://github.com/ravi-arnan/codelearn',
-        demo: '#'
+        github: 'https://github.com/ravi-arnan/codelearn'
     }
 ];
 
-function ProjectCard({ project, index }: { project: typeof projects[0], index: number }) {
+function ProjectCard({ project, index, onImageClick }: { project: typeof projects[0], index: number, onImageClick: (img: string) => void }) {
     const cardRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(cardRef, { margin: "-30% 0px -30% 0px" });
+    const [showAlert, setShowAlert] = useState(false);
+
+    useEffect(() => {
+        let timeout: ReturnType<typeof setTimeout>;
+        if (showAlert) {
+            timeout = setTimeout(() => setShowAlert(false), 4000);
+        }
+        return () => clearTimeout(timeout);
+    }, [showAlert]);
+
+    const handleGithubClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (project.github === '#') {
+            e.preventDefault();
+            setShowAlert(true);
+        }
+    };
 
     return (
         <div ref={cardRef} className="relative group">
@@ -85,14 +98,17 @@ function ProjectCard({ project, index }: { project: typeof projects[0], index: n
                     >
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                             <div className="lg:col-span-7">
-                                <div className="relative aspect-video rounded-xl overflow-hidden mb-8 group/image">
+                                <button
+                                    onClick={() => onImageClick(project.image)}
+                                    className="relative aspect-video rounded-xl overflow-hidden mb-8 group/image w-full cursor-zoom-in block outline-none ring-0"
+                                >
                                     <div className="absolute inset-0 bg-slate-900/10 dark:bg-slate-900/20 mix-blend-multiply z-10 transition-opacity duration-300 group-hover/image:opacity-0" />
                                     <img
                                         src={project.image}
                                         alt={project.title}
                                         className="object-cover w-full h-full transition-transform duration-700 group-hover/image:scale-105"
                                     />
-                                </div>
+                                </button>
                             </div>
 
                             <div className="lg:col-span-5 flex flex-col justify-center h-full pb-4">
@@ -114,17 +130,13 @@ function ProjectCard({ project, index }: { project: typeof projects[0], index: n
                                 <div className="flex items-center gap-6 mt-auto">
                                     <a
                                         href={project.github}
+                                        onClick={handleGithubClick}
+                                        target={project.github !== '#' ? "_blank" : undefined}
+                                        rel="noopener noreferrer"
                                         className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors flex items-center gap-2 group/link font-medium"
                                     >
                                         <Github size={20} className="group-hover/link:-translate-y-1 transition-transform" />
                                         Source Code
-                                    </a>
-                                    <a
-                                        href={project.demo}
-                                        className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors flex items-center gap-2 group/link font-medium"
-                                    >
-                                        <ExternalLink size={20} className="group-hover/link:-translate-y-1 group-hover/link:translate-x-1 transition-transform" />
-                                        Live Demo
                                     </a>
                                 </div>
                             </div>
@@ -132,11 +144,27 @@ function ProjectCard({ project, index }: { project: typeof projects[0], index: n
                     </motion.div>
                 </div>
             </div>
+
+            {/* Confidential Alert Toast */}
+            <AnimatePresence>
+                {showAlert && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className="absolute -top-16 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-xl border border-slate-800 dark:border-slate-200 min-w-max"
+                    >
+                        <AlertCircle size={20} className="text-amber-500 dark:text-amber-600" />
+                        <span className="text-sm font-medium">This repository is confidential and cannot be accessed publicly.</span>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }
 
 export function Projects() {
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -144,6 +172,9 @@ export function Projects() {
     });
 
     const indicatorY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+    // Close modal handle
+    const closeModal = () => setSelectedImage(null);
 
     return (
         <section id="projects" className="py-32 relative overflow-hidden text-slate-900 dark:text-slate-200">
@@ -183,7 +214,12 @@ export function Projects() {
 
                     <div className="flex flex-col gap-48 md:gap-72 pt-16 pb-48">
                         {projects.map((project, index) => (
-                            <ProjectCard key={index} project={project} index={index} />
+                            <ProjectCard
+                                key={index}
+                                project={project}
+                                index={index}
+                                onImageClick={setSelectedImage}
+                            />
                         ))}
                     </div>
                 </div>
@@ -192,6 +228,41 @@ export function Projects() {
                     <TextShape />
                 </div>
             </div>
+
+            {/* Image Modal Lightbox */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={closeModal}
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm cursor-zoom-out"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                            className="relative max-w-5xl w-full max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl cursor-default"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                onClick={closeModal}
+                                className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full backdrop-blur-md transition-colors"
+                            >
+                                <X size={24} />
+                            </button>
+                            <img
+                                src={selectedImage}
+                                alt="Project Preview"
+                                className="w-full h-full object-contain bg-slate-900/50"
+                                style={{ maxHeight: '90vh' }}
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }
