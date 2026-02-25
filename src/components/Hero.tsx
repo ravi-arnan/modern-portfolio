@@ -13,7 +13,7 @@ export function Hero() {
         mouseY.set(clientY - top);
     }
 
-    const glowBackground = useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0) 100%)`;
+    const glowBackground = useMotionTemplate`radial-gradient(350px circle at ${mouseX}px ${mouseY}px, rgba(59, 130, 246, 0.45), rgba(59, 130, 246, 0) 100%)`;
 
     return (
         <section
@@ -53,7 +53,7 @@ export function Hero() {
                             className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-slate-900 dark:text-white relative z-10"
                         >
                             Crafting digital experiences with <br className="hidden md:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-200 to-blue-500 dark:from-blue-400 dark:via-cyan-100 dark:to-blue-400 animate-gradient-x bg-[length:200%_auto]">
                                 precision and passion
                             </span>
                         </motion.h1>

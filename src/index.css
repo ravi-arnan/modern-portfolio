@@ -83,3 +83,22 @@
     transform: translateX(100%);
   }
 }
+
+/* Gradient Color Switching Animation */
+@keyframes gradient-x {
+  0% {
+    background-size: 200% auto;
+    background-position: 200% center;
+  }
+
+  100% {
+    background-size: 200% auto;
+    background-position: -200% center;
+  }
+}
+
+@layer utilities {
+  .animate-gradient-x {
+    animation: gradient-x 4s linear infinite;
+  }
+}
