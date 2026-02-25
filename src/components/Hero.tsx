@@ -36,8 +36,8 @@ export function Hero() {
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/20 rounded-full blur-[120px] -z-10" />
             <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-indigo-400/20 dark:bg-indigo-600/10 rounded-full blur-[150px] -z-10" />
 
-            <div className="container mx-auto px-6 md:px-12 relative z-10">
-                <div className="max-w-4xl mx-auto text-center">
+            <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center justify-center min-h-[80vh]">
+                <div className="max-w-4xl mx-auto text-center mt-32 md:mt-48">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -48,15 +48,38 @@ export function Hero() {
                     </motion.div>
 
                     <div className="relative w-full">
+                        {/* Profile Image Container - Behind Text, Fading out at bottom */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.7, delay: 0.3 }}
+                            className="absolute left-1/2 -top-36 md:-top-56 -translate-x-1/2 w-64 h-64 md:w-80 md:h-80 z-0 opacity-80 pointer-events-none"
+                            style={{
+                                WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
+                                maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)'
+                            }}
+                        >
+                            {/* Replace with actual image source later */}
+                            <div className="w-full h-full rounded-3xl bg-slate-300 dark:bg-slate-700 overflow-hidden shadow-2xl relative">
+                                <img
+                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
+                                    alt="Ravi Arnan Irianto"
+                                    className="w-full h-full object-cover object-center mix-blend-luminosity hover:mix-blend-normal transition-all duration-500"
+                                />
+                                {/* Soft glow overlay inside the image container */}
+                                <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay"></div>
+                            </div>
+                        </motion.div>
+
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-slate-900 dark:text-white relative z-10"
+                            className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-slate-900 dark:text-white relative z-10 drop-shadow-lg"
                         >
-                            Crafting digital experiences with <br className="hidden md:block" />
+                            My name is <br className="hidden md:block" />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-200 to-blue-500 dark:from-blue-400 dark:via-cyan-100 dark:to-blue-400 animate-gradient-x bg-[length:200%_auto]">
-                                precision and passion
+                                Ravi Arnan Irianto
                             </span>
                         </motion.h1>
                     </div>
@@ -67,7 +90,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed"
                     >
-                        I'm a full-stack developer specializing in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products.
+                        I'm a cybersecurity enthusiast focused on building secure, reliable, and user-safe digital experiences. I specialize in identifying vulnerabilities and improving system defenses.
                     </motion.p>
 
                     <motion.div
