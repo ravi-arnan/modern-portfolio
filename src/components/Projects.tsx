@@ -4,6 +4,9 @@ import { useRef, useState, useEffect } from 'react';
 import { cn } from '../lib/utils';
 import { TextShape } from './TextShape';
 import telkomDashboardImage from '../assets/TelkomDashboard.png';
+import modernPortfolioImage from '../assets/ModernPortfolio.png';
+import fileMergerImage from '../assets/FileMerger.png';
+import smokingDetectionImage from '../assets/SmokingDetection.png';
 
 const projects = [
     {
@@ -14,25 +17,25 @@ const projects = [
         github: '#'
     },
     {
-        title: 'MergeUtility',
-        description: 'A dedicated utility and scripting tool designed to simplify the process of merging multiple data files efficiently.',
-        image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800',
-        tags: ['Utility', 'Scripting', 'CLI'],
+        title: 'Modern Portfolio',
+        description: 'A personal portfolio website developed with modern web technologies, featuring a responsive design, smooth animations, and a dynamic glassmorphism dark theme.',
+        image: modernPortfolioImage,
+        tags: ['React', 'Tailwind CSS', 'Framer Motion'],
+        github: 'https://github.com/ravi-arnan/modern-portfolio'
+    },
+    {
+        title: 'File Merger Utility',
+        description: 'A powerful and efficient utility tool to seamlessly merge multiple CSV, XLS, and XLSX files. Designed to streamline data processing workflows and handle extensive spreadsheet operations with ease.',
+        image: fileMergerImage,
+        tags: ['Python', 'Data Processing', 'Automation', 'CLI'],
         github: 'https://github.com/ravi-arnan/MergeUtility'
     },
     {
-        title: 'Arba',
-        description: 'A modern web project demonstrating frontend layout capabilities and functional web application structuring.',
-        image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800',
-        tags: ['Web Development', 'Frontend', 'React'],
-        github: 'https://github.com/ravi-arnan/Arba'
-    },
-    {
-        title: 'codelearn',
-        description: 'A comprehensive educational repository focused on learning paths and exploring various programming concepts and languages.',
-        image: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800',
-        tags: ['Education', 'Programming', 'Open Source'],
-        github: 'https://github.com/ravi-arnan/codelearn'
+        title: 'Smoking Detection System',
+        description: 'An intelligent computer vision application built to accurately detect indoor smoking activities. Leverages advanced machine learning techniques and OpenCV to analyze video feeds and identify violations automatically.',
+        image: smokingDetectionImage,
+        tags: ['Computer Vision', 'Machine Learning', 'OpenCV'],
+        github: 'https://github.com/ravi-arnan/deteksi_perokok'
     }
 ];
 
