@@ -3,16 +3,18 @@ import { GraduationCap, Calendar } from 'lucide-react';
 
 const education = [
     {
-        degree: 'Master of Science in Computer Science',
-        institution: 'Tech University',
-        period: '2021 - 2023',
-        description: 'Specialized in Artificial Intelligence and Machine Learning. Thesis on neural network optimization.',
+        degree: 'Bachelor of Information Technology',
+        institution: 'UDAYANA UNIVERSITY',
+        location: 'Jimbaran, Indonesia',
+        period: '2023 – Present',
+        description: 'Current GPA: 3.65/4.00',
     },
     {
-        degree: 'Bachelor of Science in Software Engineering',
-        institution: 'State College',
-        period: '2017 - 2021',
-        description: 'Graduated with First Class Honors. Led the university programming team.',
+        degree: 'Mathematics and Natural Sciences',
+        institution: 'SMA NEGERI 2 PURWOKERTO',
+        location: 'Purwokerto, Indonesia',
+        period: '2020 - 2023',
+        description: '',
     }
 ];
 
@@ -56,12 +58,20 @@ export function Education() {
                                 </div>
                             </div>
 
-                            <h4 className="text-lg text-slate-700 dark:text-slate-300 font-semibold mb-3">
-                                {item.institution}
-                            </h4>
-                            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                                {item.description}
-                            </p>
+                            <div className="mb-3">
+                                <h4 className="text-lg text-slate-700 dark:text-slate-300 font-semibold leading-tight">
+                                    {item.institution}
+                                </h4>
+                                <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
+                                    {item.location}
+                                </p>
+                            </div>
+
+                            {item.description && (
+                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                    {item.description}
+                                </p>
+                            )}
                         </motion.div>
                     ))}
                 </div>
