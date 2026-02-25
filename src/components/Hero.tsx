@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import { AnimatedBackground } from './AnimatedBackground';
 
 export function Hero() {
     const mouseX = useMotionValue(0);
@@ -23,6 +24,7 @@ export function Hero() {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
+            <AnimatedBackground />
             <motion.div
                 className="absolute inset-0 pointer-events-none z-0 transition-opacity duration-500"
                 style={{

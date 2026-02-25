@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ThemeProvider } from './components/ThemeProvider';
-import { AnimatedBackground } from './components/AnimatedBackground';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Marquee } from './components/Marquee';
@@ -26,8 +25,6 @@ function App() {
           <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
         )}
 
-        <AnimatedBackground />
-
         {/* Animate the main content in after the loading screen finishes */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -39,14 +36,16 @@ function App() {
 
           <main>
             <Hero />
-            <Marquee />
-            <About />
-            <Education />
-            <Projects />
-            <Skills />
-            <Achievements />
-            <Interests />
-            <Contact />
+            <div className="bg-slate-50 dark:bg-[#080A2D]">
+              <Marquee />
+              <About />
+              <Education />
+              <Projects />
+              <Skills />
+              <Achievements />
+              <Interests />
+              <Contact />
+            </div>
           </main>
 
           <Footer />
