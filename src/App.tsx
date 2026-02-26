@@ -38,9 +38,31 @@ function App() {
             <Hero />
             <div className="bg-slate-50 dark:bg-[#080A2D]">
               <Marquee />
-              <About />
-              <Education />
-              <Projects />
+
+              {/* Shared Background for About, Education, and Projects */}
+              <div className="relative">
+                {/* Sticky Center Glow */}
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                  <div className="sticky top-0 h-screen w-full flex items-center justify-center">
+                    <div className="w-[800px] h-[800px] bg-blue-500/15 dark:bg-blue-500/10 rounded-full blur-[120px]" />
+                  </div>
+                </div>
+
+                {/* Grid Pattern Background */}
+                <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
+                  style={{
+                    backgroundImage: `linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px)`,
+                    backgroundSize: '40px 40px'
+                  }}
+                />
+
+                <div className="relative z-10">
+                  <About />
+                  <Education />
+                  <Projects />
+                </div>
+              </div>
+
               <Skills />
               <Achievements />
               <Certifications />

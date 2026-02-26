@@ -168,6 +168,8 @@ function ProjectCard({ project, index, onImageClick }: { project: typeof project
 export function Projects() {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    // Scroll progress for the timeline indicator
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start center", "end center"]
@@ -180,10 +182,7 @@ export function Projects() {
 
     return (
         <section id="projects" className="py-32 relative overflow-hidden text-slate-900 dark:text-slate-200">
-            {/* Background Decor */}
-            <div className="absolute top-1/4 left-0 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-600/10 rounded-full blur-[120px] -z-10" />
-
-            <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+            <div className="container mx-auto px-6 md:px-12 max-w-5xl relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

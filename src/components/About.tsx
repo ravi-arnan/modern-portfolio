@@ -21,10 +21,7 @@ const cards = [
 
 export function About() {
     return (
-        <section id="about" className="py-24 relative overflow-hidden">
-            {/* Background Elements */}
-            <div className="absolute top-1/2 right-0 w-72 h-72 bg-blue-300/20 dark:bg-blue-600/10 rounded-full blur-[100px] -z-10" />
-
+        <section id="about" className="py-24 relative overflow-hidden group">
             <div className="container mx-auto px-6 md:px-12">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

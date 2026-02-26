@@ -20,8 +20,8 @@ const education = [
 
 export function Education() {
     return (
-        <section id="education" className="py-24 relative">
-            <div className="container mx-auto px-6 md:px-12">
+        <section id="education" className="py-24 relative overflow-hidden">
+            <div className="container mx-auto px-6 md:px-12 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
