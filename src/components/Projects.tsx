@@ -2,7 +2,6 @@ import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'fra
 import { Github, FolderGit2, X, AlertCircle } from 'lucide-react';
 import { useRef, useState, useEffect } from 'react';
 import { cn } from '../lib/utils';
-import { TextShape } from './TextShape';
 import telkomDashboardImage from '../assets/TelkomDashboard.png';
 import modernPortfolioImage from '../assets/ModernPortfolio.png';
 import fileMergerImage from '../assets/FileMerger.png';
@@ -225,10 +224,6 @@ export function Projects() {
                             />
                         ))}
                     </div>
-                </div>
-
-                <div className="mt-32">
-                    <TextShape />
                 </div>
             </div>
 

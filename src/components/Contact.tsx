@@ -39,8 +39,8 @@ export function Contact() {
                             </div>
                             <div>
                                 <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Email</h4>
-                                <a href="mailto:hello@example.com" className="text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                                    hello@example.com
+                                <a href="mailto:raviarnankeren@gmail.com" className="text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                    raviarnankeren@gmail.com
                                 </a>
                             </div>
                         </div>
@@ -51,8 +51,8 @@ export function Contact() {
                             </div>
                             <div>
                                 <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Phone</h4>
-                                <a href="tel:+1234567890" className="text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                                    +1 (234) 567-890
+                                <a href="tel:+6287782674878" className="text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                    (+62) 877 8267 4878
                                 </a>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ export function Contact() {
                             <div>
                                 <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Location</h4>
                                 <span className="text-lg font-medium text-slate-800 dark:text-slate-200">
-                                    San Francisco, CA
+                                    Denpasar, Bali
                                 </span>
                             </div>
                         </div>

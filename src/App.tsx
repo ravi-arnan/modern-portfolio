@@ -9,7 +9,7 @@ import { Education } from './components/Education';
 import { Projects } from './components/Projects';
 import { Skills } from './components/Skills';
 import { Achievements } from './components/Achievements';
-import { Interests } from './components/Interests';
+import { Certifications } from './components/Certifications';
 import { Contact } from './components/Contact';
 import { LoadingScreen } from './components/LoadingScreen';
 import { Footer } from './components/Footer';
@@ -43,7 +43,7 @@ function App() {
               <Projects />
               <Skills />
               <Achievements />
-              <Interests />
+              <Certifications />
               <Contact />
             </div>
           </main>

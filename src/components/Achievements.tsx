@@ -3,22 +3,22 @@ import { Trophy, Award, Star } from 'lucide-react';
 
 const achievements = [
     {
-        title: 'Juara 1 Lomba Catur SPORTI',
+        title: '1st Place in SPORTI Chess Competition',
         organization: '2024 & 2025',
         icon: <Trophy className="w-6 h-6 text-yellow-500" />,
-        description: 'Meraih juara pertama dalam Lomba Catur SPORTI (Sportivitas Teknologi Informasi) selama dua tahun berturut-turut, menunjukkan kemampuan strategi dan problem-solving yang konsisten.'
+        description: 'Secured first place in the SPORTI (Information Technology Sportivity) Chess Competition for two consecutive years, demonstrating consistent strategic thinking and problem-solving skills.'
     },
     {
-        title: 'Finalis Pilmapres TI',
+        title: 'IT Student of the Year Finalist',
         organization: '2024',
         icon: <Star className="w-6 h-6 text-blue-500" />,
-        description: 'Terpilih sebagai finalis Pemilihan Mahasiswa Berprestasi Teknologi Informasi 2024, mewakili fakultas dalam kompetisi bergengsi tingkat universitas.'
+        description: 'Selected as a finalist for the 2024 Information Technology Outstanding Student Award (Pilmapres TI), representing the faculty in a prestigious university-level competition.'
     },
     {
-        title: 'BSI Scholarship Inspirasi',
+        title: 'BSI Inspiration Scholarship',
         organization: '2024',
         icon: <Award className="w-6 h-6 text-orange-500" />,
-        description: 'Penerima beasiswa BSI Scholarship Inspirasi 2024, penghargaan untuk mahasiswa berprestasi dengan kontribusi aktif dalam kegiatan akademik dan organisasi.'
+        description: 'Recipient of the 2024 BSI Inspiration Scholarship, an award recognizing outstanding students with active contributions to academic and organizational activities.'
     }
 ];
 
@@ -31,13 +31,13 @@ export function Achievements() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="mb-16"
+                    className="text-center mb-16"
                 >
-                    <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center justify-center gap-4 mb-4">
                         <Award className="w-10 h-10 text-blue-500" />
                         <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white">Achievements</h2>
                     </div>
-                    <div className="w-20 h-1 bg-blue-500 rounded-full" />
+                    <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full" />
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

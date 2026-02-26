@@ -1,21 +1,21 @@
 import { motion } from 'framer-motion';
-import { Code2, Palette, Zap } from 'lucide-react';
+import { ShieldCheck, Search, Lock } from 'lucide-react';
 
 const cards = [
     {
-        icon: <Code2 className="w-8 h-8 text-blue-500 mb-4" />,
-        title: 'Clean Code',
-        description: 'Writing maintainable, scalable, and efficient code following modern best practices and architectural patterns.',
+        icon: <ShieldCheck className="w-8 h-8 text-blue-500 mb-4" />,
+        title: 'System Security',
+        description: 'Implementing robust security measures and protocols to protect systems from potential threats and unauthorized access.',
     },
     {
-        icon: <Palette className="w-8 h-8 text-indigo-500 mb-4" />,
-        title: 'Modern Design',
-        description: 'Crafting beautiful, intuitive interfaces focused on user experience and cutting-edge visual aesthetics.',
+        icon: <Search className="w-8 h-8 text-indigo-500 mb-4" />,
+        title: 'Vulnerability Assessment',
+        description: 'Identifying, analyzing, and mitigating security flaws in applications and network infrastructures.',
     },
     {
-        icon: <Zap className="w-8 h-8 text-sky-500 mb-4" />,
-        title: 'Performance',
-        description: 'Optimizing applications for maximum speed and smooth interactions across all devices and platforms.',
+        icon: <Lock className="w-8 h-8 text-sky-500 mb-4" />,
+        title: 'Data Protection',
+        description: 'Ensuring data integrity and confidentiality through advanced encryption and secure communication channels.',
     }
 ];
 
@@ -36,9 +36,9 @@ export function About() {
                     <h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">About Me</h2>
                     <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full mb-8" />
                     <p className="max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-                        I'm a full-stack developer with a passion for building robust web applications.
-                        I love bridging the gap between elegant design and complex backend logic.
-                        When I'm not coding, you can find me exploring new technologies or contributing to open source.
+                        I'm a cybersecurity enthusiast dedicated to safeguarding digital environments.
+                        I am passionate about discovering vulnerabilities, analyzing threats, and implementing effective security solutions.
+                        When I'm not securing systems, you can find me participating in CTF challenges or exploring the latest developments in information security.
                     </p>
                 </motion.div>
 
