@@ -19,7 +19,7 @@ const certifications = [
         color: "from-emerald-500 to-teal-500"
     },
     {
-        title: "Cybersecurity for everyone",
+        title: "Cybersecurity For Everyone",
         issuer: "University of Maryland, College Park",
         date: "Jul 26, 2024",
         link: "https://coursera.org/share/d9d79d476752e22786129c9ddc55fc24",
