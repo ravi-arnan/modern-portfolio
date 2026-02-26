@@ -2,7 +2,7 @@ import { Github, Linkedin, Instagram, Mail } from 'lucide-react';
 
 export function Footer() {
     return (
-        <footer className="pt-12 pb-0 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0F0F0F] relative z-10 overflow-hidden">
+        <footer className="pt-12 pb-0 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#07050E] relative z-10 overflow-hidden">
             <div className="container mx-auto px-6 md:px-12 flex flex-col items-center relative z-10 mb-12">
                 <div className="flex gap-6 mb-8">
                     <a
