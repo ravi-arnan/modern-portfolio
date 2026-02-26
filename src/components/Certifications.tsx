@@ -19,6 +19,20 @@ const certifications = [
         color: "from-emerald-500 to-teal-500"
     },
     {
+        title: "Cybersecurity for everyone",
+        issuer: "University of Maryland, College Park",
+        date: "Jul 26, 2024",
+        link: "https://coursera.org/share/d9d79d476752e22786129c9ddc55fc24",
+        color: "from-purple-500 to-fuchsia-500"
+    },
+    {
+        title: "Alibaba Cloud Certified Developer",
+        issuer: "Alibaba Cloud",
+        date: "Jul 2024",
+        link: "https://drive.google.com/file/d/12i9spnMkRXV-cB0csPjtuwQ6VQauKqWN/view",
+        color: "from-orange-500 to-yellow-500"
+    },
+    {
         title: "Certificate of Completion 2023 - 2024 (Tech Buddy)",
         issuer: "Google Developer Student Club Universitas Udayana",
         date: "2024",
@@ -33,31 +47,17 @@ const certifications = [
         color: "from-sky-500 to-blue-600"
     },
     {
-        title: "Advanced React Patterns",
-        issuer: "Frontend Masters",
-        date: "Jan 15, 2024",
-        link: "#",
+        title: "Learning the Basics of Project Management",
+        issuer: "Dicoding",
+        date: "Jan 19, 2024",
+        link: "https://www.dicoding.com/certificates/98XW25E54PM3",
         color: "from-purple-500 to-fuchsia-500"
     },
     {
-        title: "AWS Certified Developer – Associate",
-        issuer: "Amazon Web Services",
-        date: "Nov 22, 2023",
-        link: "#",
-        color: "from-orange-500 to-yellow-500"
-    },
-    {
-        title: "Advanced React Patterns",
-        issuer: "Frontend Masters",
-        date: "Jan 15, 2024",
-        link: "#",
-        color: "from-purple-500 to-fuchsia-500"
-    },
-    {
-        title: "AWS Certified Developer – Associate",
-        issuer: "Amazon Web Services",
-        date: "Nov 22, 2023",
-        link: "#",
+        title: "Getting Started with Programming in Kotlin",
+        issuer: "Dicoding",
+        date: "Dec 23, 2023",
+        link: "https://www.dicoding.com/certificates/0LZ029N50X65",
         color: "from-orange-500 to-yellow-500"
     }
 ];
