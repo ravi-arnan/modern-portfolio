@@ -1,16 +1,16 @@
-import { Database, Monitor, Smartphone, Layout, Server, Cloud, Shield, Code2, Globe, Cpu } from 'lucide-react';
+import { Shield, Search, Lock, AlertTriangle, Activity, Terminal, Key, Database, Crosshair, Server } from 'lucide-react';
 
 const techIcons = [
-    { icon: Monitor, name: "Frontend Architecture" },
-    { icon: Server, name: "Backend Systems" },
-    { icon: Database, name: "Database Design" },
-    { icon: Cloud, name: "Cloud Infrastructure" },
-    { icon: Smartphone, name: "Mobile First" },
-    { icon: Layout, name: "UI/UX Engineering" },
-    { icon: Shield, name: "Security First" },
-    { icon: Code2, name: "Clean Code" },
-    { icon: Globe, name: "Web Performance" },
-    { icon: Cpu, name: "System Optimization" },
+    { icon: Shield, name: "Network Security" },
+    { icon: Search, name: "Vulnerability Assessment" },
+    { icon: Crosshair, name: "Penetration Testing" },
+    { icon: Terminal, name: "Ethical Hacking" },
+    { icon: Lock, name: "Cryptography" },
+    { icon: AlertTriangle, name: "Incident Response" },
+    { icon: Activity, name: "Threat Hunting" },
+    { icon: Database, name: "Data Protection" },
+    { icon: Server, name: "Server Hardening" },
+    { icon: Key, name: "Access Management" },
 ];
 
 export function Marquee() {

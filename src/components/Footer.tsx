@@ -2,8 +2,8 @@ import { Github, Linkedin, Instagram, Mail } from 'lucide-react';
 
 export function Footer() {
     return (
-        <footer className="py-12 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#080A2D] relative z-10">
-            <div className="container mx-auto px-6 md:px-12 flex flex-col items-center">
+        <footer className="pt-12 pb-0 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0F0F0F] relative z-10 overflow-hidden">
+            <div className="container mx-auto px-6 md:px-12 flex flex-col items-center relative z-10 mb-12">
                 <div className="flex gap-6 mb-8">
                     <a
                         href="https://github.com/ravi-arnan"
@@ -44,6 +44,20 @@ export function Footer() {
                     © {new Date().getFullYear()} Ravi Arnan Irianto. All rights reserved. <br className="md:hidden" />
                     Built with React & Tailwind CSS.
                 </p>
+            </div>
+
+            {/* Large Text at Bottom */}
+            <div className="w-full flex justify-center pointer-events-none select-none overflow-hidden mt-auto translate-y-4 md:translate-y-8">
+                <span
+                    className="text-[20vw] font-normal uppercase text-slate-200/50 dark:text-slate-800/40 leading-none tracking-tighter whitespace-nowrap"
+                    style={{
+                        fontFamily: 'Helvetica, Arial, sans-serif',
+                        WebkitMaskImage: 'linear-gradient(to bottom, black 0%, transparent 100%)',
+                        maskImage: 'linear-gradient(to bottom, black 0%, transparent 100%)'
+                    }}
+                >
+                    Ravi Arnan
+                </span>
             </div>
         </footer>
     );
